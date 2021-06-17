@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+a{
+    align-items: center;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    &:hover{
+    color: rgba(255, 255, 255, 0.8);
+    }
+}
+a:link{
+    text-decoration: none;
+
+    }
+
+    .h4{
+    pointer-events: none;
+
+    }
+    .table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.btn{
+    a:link{
+    color: white;
+    }
+}
