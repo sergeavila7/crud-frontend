@@ -1,25 +1,26 @@
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import NavbarJsx from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Update from './components/Update';
 
-const isAuth = () =>{
-  const token = sessionStorage.getItem('token')
-  if(token){
-    return true
-  }else{
-    return false
+const isAuth = () => {
+  const token = sessionStorage.getItem('token');
+  if (token) {
+    return true;
+  } else {
+    return false;
   }
-}
+};
 
-const MyRoute = (props)=>{
-  return isAuth()? <Route {...props}/>: <Redirect to='/'/>
-}
-const PublicRoute = (props)=>{
-  return isAuth()? <Redirect to='/home'/>:<Route {...props}/>
-}
+const MyRoute = (props) => {
+  return isAuth() ? <Route {...props} /> : <Redirect to='/' />;
+};
+const PublicRoute = (props) => {
+  return isAuth() ? <Redirect to='/home' /> : <Route {...props} />;
+};
 
 function App() {
   return (

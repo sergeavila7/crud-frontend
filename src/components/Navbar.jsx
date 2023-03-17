@@ -44,20 +44,22 @@ const NavbarJsx = () => {
           </Nav>
         </div>
       ) : (
-        <Nav className='ml-auto'>
-          <NavLink to='/'>
-            <i>
-              <FaHome />
-            </i>
-            Inicio
-          </NavLink>
-          <NavLink to='/register'>
-            <i>
-              <ImUserPlus />
-            </i>
-            Registrar
-          </NavLink>
-        </Nav>
+        <div className='container'>
+          <Nav className='ml-auto'>
+            <NavLink to='/'>
+              <i>
+                <FaHome />
+              </i>
+              Inicio
+            </NavLink>
+            <NavLink to='/register'>
+              <i>
+                <ImUserPlus />
+              </i>
+              Registrar
+            </NavLink>
+          </Nav>
+        </div>
       )}
     </Navbar>
   );

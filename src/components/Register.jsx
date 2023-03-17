@@ -12,7 +12,7 @@ export default function Register() {
   const register = async (e) => {
     e.preventDefault();
     const user = { name, email, password };
-    const response = await Axios.post('/boss/add', user);
+    const response = await Axios.post('/user/add', user);
     const message = response.data.message;
     if (message !== 'Bienvenido') {
       Swal.fire({

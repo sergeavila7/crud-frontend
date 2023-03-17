@@ -29,22 +29,17 @@ export default function Home() {
   const getEmployes = async () => {
     const id = sessionStorage.getItem('iduser');
     const token = sessionStorage.getItem('token');
-    const response = await Axios.get(
-      '/employee/byTheBoss/' + id,
-      {
-        headers: { authorization: token },
-      }
-    );
+    const response = await Axios.get('/employee/byTheUser/' + id, {
+      headers: { authorization: token },
+    });
     setEmployes(response.data);
   };
+
   const remove = async (id) => {
     const token = sessionStorage.getItem('token');
-    const response = await Axios.delete(
-      '/employee/delete/' + id,
-      {
-        headers: { authorization: token },
-      }
-    );
+    const response = await Axios.delete('/employee/delete/' + id, {
+      headers: { authorization: token },
+    });
     const message = response.data.message;
     Swal.fire({
       icon: 'success',
@@ -62,16 +57,12 @@ export default function Home() {
       identification,
       role,
       tcontract: contractselect,
-      boss: sessionStorage.getItem('iduser'),
+      user: sessionStorage.getItem('iduser'),
     };
     const token = sessionStorage.getItem('token');
-    const response = await Axios.post(
-      '/employee/add',
-      user,
-      {
-        headers: { authorization: token },
-      }
-    );
+    const response = await Axios.post('/employee/add', user, {
+      headers: { authorization: token },
+    });
     const message = response.data.message;
     Swal.fire({
       icon: 'success',
@@ -84,7 +75,7 @@ export default function Home() {
   };
 
   const search = async (e) => {
-    if(e.target.value===''){
+    if (e.target.value === '') {
       return getEmployes();
     }
     const search = e.target.value;
@@ -175,7 +166,11 @@ export default function Home() {
                         <td>{employee.role}</td>
                         <td>{employee.tcontract}</td>
                         <td>
-                          <Button variant='success' text="white" className='mr-2' >
+                          <Button
+                            variant='success'
+                            text='white'
+                            className='mr-2'
+                          >
                             <Link to={'/edit/' + employee._id}>Editar</Link>
                           </Button>
                           <Button

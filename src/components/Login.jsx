@@ -11,7 +11,7 @@ export default function Login() {
   const login = async (e) => {
     e.preventDefault();
     const user = { email, password };
-    const response = await Axios.post('/boss/login', user);
+    const response = await Axios.post('/user/login', user);
     const message = response.data.message;
     if (message !== 'Bienvenido') {
       Swal.fire({
